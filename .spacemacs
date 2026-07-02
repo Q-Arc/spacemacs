@@ -66,6 +66,11 @@ This function should only modify configuration layer settings."
      pandoc
      systemd
      yaml
+     eww
+     finance
+     docker
+     ansible
+     toml
      )
 
    ;; List of additional packages that will be installed without being wrapped
@@ -76,7 +81,10 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      ghostel
+                                      evil-ghostel
+                                      )
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -591,6 +599,18 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (require 'helm-command)
   (setq helm-input-idle-delay 0.0)
+
+  (use-package ghostel
+    :defer t
+    :init
+    (spacemacs/set-leader-keys "atg" 'ghostel))
+
+  (use-package evil-ghostel
+    :after (ghostel evil)
+    :hook (ghostel-mode . evil-ghostel-mode))
+  :config
+  (require 'ghostel-comint)
+  (ghostel-comint-global-mode 1)
   )
 
 
