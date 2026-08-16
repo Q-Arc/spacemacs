@@ -1,2 +1,2 @@
 # spacemacs
-My spacemacs file
+My spacemacs file that's primarily used for prose writing. 
