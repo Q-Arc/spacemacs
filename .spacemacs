@@ -576,7 +576,6 @@ before packages are loaded."
   (setq helm-input-idle-delay 0.0)
   )
 
-
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (defun dotspacemacs/emacs-custom-settings ()
