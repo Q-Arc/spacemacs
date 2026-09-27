@@ -44,12 +44,31 @@ This function should only modify configuration layer settings."
      helm
      org
      pandoc
+     lsp
+     dap
+     (c-c++ :variables
+            c-c++-backend 'lsp-clangd
+            c-c++-formatter 'clang-format
+            c-c++-lsp-enable-semantic-highlighting t
+            c-c++-enable-auto-newline t)
+     (rust :variables
+           lsp-rust-analyzer-cargo-reload t
+           rustic-format-on-save t)
+     toml
+     syntax-checking
+     (python :variables
+             python-backend 'lsp
+             python-lsp-server 'pyright
+             python-enable-tools '(uv)
+             python-test-runner 'pytest
+             python-formatter 'ruff
+             python-format-on-save t)
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      (spell-checking :variables
                      enable-flyspell-auto-completion t)
-)
+     )
 
    ;; List of additional packages that will be installed without being wrapped
    ;; in a layer (generally the packages are installed only and should still be
